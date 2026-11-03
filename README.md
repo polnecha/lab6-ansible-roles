@@ -37,5 +37,5 @@
 ### 5. Проверка через браузер (Windows hosts)
 ![Browser Check](5_browser_check.png)
 
-### 6. GitHub Actions (CI Pipeline) — все ошибки исправлены!
+### 6. GitHub Actions (CI Pipeline) — все ошибки исправлены
 ![GitHub Actions](6_github_actions.png)
