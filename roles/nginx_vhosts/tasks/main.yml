@@ -1,14 +1,17 @@
 ---
 - name: Install nginx
   ansible.builtin.apt:
-    update_cache: yes
+    update_cache: true
     name: nginx
-    state: latest
+    state: present
 
 - name: Create sites folders
   ansible.builtin.file:
     path: '/var/www/{{ item }}/'
     state: directory
+    owner: root
+    group: root
+    mode: '0755'
   loop: '{{ sites }}'
 
 - name: Copy nginx config from template
@@ -19,7 +22,7 @@
     group: root
     mode: '0644'
   loop: '{{ sites }}'
-  notify: restart nginx
+  notify: Restart nginx
 
 - name: Copy index from template
   ansible.builtin.template:
@@ -29,4 +32,4 @@
     group: root
     mode: '0644'
   loop: '{{ sites }}'
-  notify: restart nginx
+  notify: Restart nginx
